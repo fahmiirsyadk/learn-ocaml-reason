@@ -1,0 +1,1 @@
+let () = List.map ((+) 3) [4;5;6] |> Js.log
