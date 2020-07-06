@@ -1,18 +1,12 @@
-let concat = (~sep=?, x, y) =>
-  (
-    (x, y, z) =>
-      switch (z) {
-      | None => x ++ y
-      | Some(z) => x ++ z ++ y
-      }
-  )(
-    x,
-    y,
-    sep,
-  );
+let concat = (~sep=?, x, y) => {
+  switch (sep) {
+  | None => x ++ y
+  | Some(z) => x ++ z ++ y
+  };
+};
 
-let uppercase_concat = (~sep="", a, b) =>
-  concat(~sep, String.uppercase_ascii(a), b);
+let uppercase_concat = (~sep=?, a, b) =>
+  concat(String.uppercase_ascii(a), b, ~sep?);
 
 let () = concat("hello", "world") |> Js.log;
 concat(~sep="~~", "hello", "world") |> Js.log;

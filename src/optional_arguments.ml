@@ -1,6 +1,8 @@
-let concat ?sep x y = match sep with None -> x ^ y | Some z -> x ^ z ^ y
+let concat ?sep x y = 
+  match sep with None -> x ^ y | Some z -> x ^ z ^ y
 
-let uppercase_concat ?(sep="") a b = concat ~sep (String.uppercase_ascii a) b
+let uppercase_concat ?sep a b = 
+  concat ?sep (String.uppercase_ascii a) b
 
 let () = 
   concat "hello" "world" |> Js.log;
